@@ -1,0 +1,49 @@
+{{extend './common/layout.art'}}
+{{block 'main'}}
+<!-- 头部 -->
+{{include './common/header.art'}}
+<!-- 主体内容 -->
+<div class="content">
+    <!-- 侧边栏 -->
+  {{include './common/aside.art'}}
+    <div class="main">
+        <!-- 分类标题 -->
+        <div class="title">
+            <p class="tips">{{ message }}</p>
+        </div>
+        <!-- /分类标题 -->
+        <form class="form-container" method="post" action="/admin/user-edit">
+            <input type="text" value="{{user && user._id.toString()}}" name="id" hidden>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" value="{{user && user.username}}" class="form-control" placeholder="请输入用户名" name="username">
+            </div>
+            <div class="form-group">
+                <label>邮箱</label>
+                <input type="email" value="{{user && user.email}}" class="form-control" placeholder="请输入邮箱地址" name="email">
+            </div>
+            <div class="form-group" style="display:{{user?'none':'block'}}">
+                <label>密码</label>
+                <input type="password" value="{{user && user.password}}" class="form-control" placeholder="请输入密码" name="password">
+            </div>
+            <div class="form-group" style="display:{{user && user._id.toString()==userInfo._id.toString()?'none':'block'}}">
+                <label>角色</label>
+                <select class="form-control" name="role">
+                    <option value="normal" {{user && user.role=='normal'?'selected':''}}>普通用户</option>
+                    <option value="admin" {{user && user.role=='admin'?'selected':''}}>超级管理员</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>状态{{user && user.state}}</label>
+                <select class="form-control" name="state">
+                    <option value="0" {{user && user.state==0?'selected':''}}>启用</option>
+                    <option value="1" {{user && user.state==1?'selected':''}}>禁用</option>
+                </select>
+            </div>
+            <div class="buttons">
+                <input type="submit" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
+{{/block}}

@@ -1,0 +1,54 @@
+/* 文章列表开始 */
+.list {
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.list li {
+  width: 48%;
+  background: #FFF;
+  padding: 15px;
+  margin: 30px 1% 0;
+  box-shadow: 2px 2px 3px #e1e1e1;
+  box-sizing: border-box;
+}
+
+.list .thumbnail,
+.list .thumbnail img {
+  display: block;
+  width: 100%;
+}
+
+.list .content {
+  padding: 16px 0 0;
+}
+
+.list .brief {
+  font-size: 14px;
+  line-height: 24px;
+  margin-top: 20px;
+  word-break: break-all;
+}
+
+/* 文章列表结束 */
+
+/* 分页开始 */
+.page {
+  padding: 30px 0;
+  font-size: 0;
+  text-align: center;
+}
+
+.page a {
+  display: inline-block;
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.page .active {
+  color: #ff7300;
+}
+
+/* 分页结束 */

@@ -1,0 +1,26 @@
+{{extend './common/layout.art'}}
+{{block 'main'}}
+<!-- 头部 -->
+{{include './common/header.art'}}
+<!-- 主体内容 -->
+<div class="content">
+    <!-- 侧边栏 -->
+  {{include './common/aside.art'}}
+    <div class="main">
+        <!-- 分类标题 -->
+        <div class="title">
+            <p class="tips">{{ message }}</p>
+        </div>
+        <!-- /分类标题 -->
+        <form class="form-container" method="post" action="/admin/category-edit">
+            <div class="form-group">
+                <label>分类名称</label>
+                <input type="text" value="{{category && category.name}}" class="form-control" placeholder="请输入分类名称" name="name">
+            </div>
+            <div class="buttons">
+                <input type="submit" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
+{{/block}}
